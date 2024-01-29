@@ -20,7 +20,7 @@ public class MyReactiveMessagingApplication {
      * Messages are sent to the broker.
      **/
     void onStart(@Observes StartupEvent ev) {
-        Stream.of("Hello", "with", "SmallRye", "como", "message").forEach(string -> emitter.send(string));
+        Stream.of("Hello", "with", "SmallRye", "Milano", "message").forEach(string -> emitter.send(string));
     }
 
     /**
