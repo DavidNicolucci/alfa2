@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class MyReactiveMessagingApplication {
 
     @Inject
-    @Channel("words-out")
+    @Channel("alfa2-out")
     Emitter<String> emitter;
 
     /**
@@ -20,14 +20,14 @@ public class MyReactiveMessagingApplication {
      * Messages are sent to the broker.
      **/
     void onStart(@Observes StartupEvent ev) {
-        Stream.of("Hello", "with", "SmallRye", "reactive", "message").forEach(string -> emitter.send(string));
+        Stream.of("Hello", "with", "SmallRye", "como", "message").forEach(string -> emitter.send(string));
     }
 
     /**
      * Consume the message from the "words-in" channel, uppercase it and send it to the uppercase channel.
      * Messages come from the broker.
      **/
-    @Incoming("words-in")
+    @Incoming("alfa2-in")
     @Outgoing("uppercase")
     public Message<String> toUpperCase(Message<String> message) {
         return message.withPayload(message.getPayload().toUpperCase());
